@@ -5,8 +5,11 @@ This is the initial README for the PipelineDev page:
 
 ## Cloning and keys
 ### Summary
-Instead of the default method for cloning, I specify my username for github to clone:
-`git clone git@dylanlawless.github.com:SwissPedHealth-PipelineDev.github.io.git`
+Instead of the default method for cloning, if:
+1. you have a ssh key set up for your github account and 
+2. you are an organisation member, you can specify your username for github to clone:
+
+`git clone git@dylanlawless.github.com:SwissPedHealth-PipelineDev/SwissPedHealth-PipelineDev.github.io.git`
 
 Then set the local user 
 `cd docs`

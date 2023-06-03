@@ -5,27 +5,51 @@ Design - Sara Mazal Web;
 Fonts - Google Fonts
 */
 
+
 window.onload = function () {
+  var screenWidth = window.innerWidth;
+  var particleCount;
+  if (screenWidth <= 480) {        // For mobile screens (<= 480px)
+    particleCount = 30;
+  } else if (screenWidth <= 768) { // For tablet screens (> 480px and <= 768px)
+    particleCount = 60;
+  } else if (screenWidth <= 1024) { // For small desktop screens (> 768px and <= 1024px)
+    particleCount = 90;
+  } else {                         // For large desktop screens (> 1024px)
+    particleCount = 120;
+  }
+
   Particles.init({
-    selector: ".background"
+    selector: ".background",
+    color: ["#03dac6", "#ff0266", "#000000"],
+    connectParticles: true,
+    maxParticles: particleCount
   });
 };
-const particles = Particles.init({
-  selector: ".background",
-  color: ["#03dac6", "#ff0266", "#000000"],
-  connectParticles: true,
-  responsive: [
-    {
-      breakpoint: 768,
-      options: {
-        color: ["#faebd7", "#03dac6", "#ff0266"],
-        maxParticles: 83,
-        // connectParticles: false
-        connectParticles: true
-      }
-    }
-  ]
-});
+
+
+
+// window.onload = function () {
+//   Particles.init({
+//     selector: ".background"
+//   });
+// };
+// const particles = Particles.init({
+//   selector: ".background",
+//   color: ["#03dac6", "#ff0266", "#000000"],
+//   connectParticles: true,
+//   responsive: [
+//     {
+//       breakpoint: 768,
+//       options: {
+//         color: ["#faebd7", "#03dac6", "#ff0266"],
+//         maxParticles: 83,
+//         // connectParticles: false
+//         connectParticles: true
+//       }
+//     }
+//   ]
+// });
 
 class NavigationPage {
   constructor() {

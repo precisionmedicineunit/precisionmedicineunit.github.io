@@ -111,6 +111,7 @@ a {
 }
 .nav-tab {
   display: flex;
+  flex-direction: column; /* arrange children vertically */
   justify-content: center;
   align-items: center;
   flex: 1;
@@ -118,6 +119,7 @@ a {
   /* letter-spacing: 0.1rem; */
   transition: all 0.5s ease;
   font-size: 2vw;
+  gap: 0.5em; /* put a bit of space between icon and text */
 }
 
 .nav-tab:hover {
@@ -320,3 +322,29 @@ a {
   'GRAD' 0,
   'opsz' 48
   }
+
+
+/* screen size adjusts */
+.nav h1,
+.slider h1 {
+  font-size: calc(16px + 2vw);
+  }
+
+  .slider h2 {
+    font-size: calc(12px + 1.5vw);
+}
+
+h3.span {
+  font-size: calc(12px + 1.5vw);
+  }
+
+  .nav-tab {
+    font-size: calc(12px + 1vw);
+}
+
+.doc-link {
+  font-size: calc(12px + 1vw);
+  }
+
+
+
