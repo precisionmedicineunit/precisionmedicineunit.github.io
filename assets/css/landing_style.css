@@ -1,22 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono&display=swap');
+/* usage: */
 /* font-family: 'IBM Plex Sans', sans-serif; */
 /* font-family: 'IBM Plex Sans Condensed', sans-serif; */
 
 :root {
-	--main-bg-color: #191919; /* black/grey */
-	--bold-color: #ff0266; /* mint */
-	--main-text-color: #faebd7; /* white/orange */
-	--highlight-color: #ff0266; /* hot pink */
-}
+	--ground: #191919;
+  --pink: #ff0266;
+  --red: #ff3345;
+	--orange: #ffcd96;
+  --blue: #03dac6;
+  --black: #000000;
+  --mint: #03dac6;
+  --white-orange: #faebd7;
 
-/* --main-bg-color: #191919; /1* black/grey *1/ */
-/* --bold-color: #03dac6; /1* mint *1/ */
-/* --main-text-color: #faebd7; /1* white/orange *1/ */
-/* --highlight-color: #ff0266; /1* hot pink *1/ */
-/* var(--main-bg-color) */
-/* var(--bold-color) */
-/* var(--main-text-color) */
-/* var(--highlight-color) */
+  --main-bg-color: var(--ground);
+  --bold-color: var(--pink);
+  /* --bold-color: var(--mint); */
+  --main-text-color: var(--white-orange);
+  /* --highlight-color: var(--pink); */
+  --highlight-color: var(--mint);
+}
 
 * {
 	margin: 0;
@@ -27,6 +30,7 @@
 body {
 	font-family: 'IBM Plex Sans', sans-serif;
 	background-color: var(--main-bg-color);
+	overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .mono-font {
@@ -46,10 +50,30 @@ body {
 	padding: 0 2em;
 }
 
+.slider.no-height {
+  height: auto;
+}
+
+
 .nav h1,
 .slider h1 {
 	font-family: 'IBM Plex Sans', sans-serif;
-	font-size: 5vw;
+	/* font-size: 5vw; */
+  font-size: calc(2vw + 1em); /* This will scale with viewport width */
+  font-size: min(max(2vw, 20px), 40px); /* But it will not go below 20px and not exceed 40px */
+	margin: 0;
+	padding-bottom: 0.5rem;
+	color: var(--bold-color);
+	transition: all 0.9s ease;
+	z-index: 3;
+}
+
+.nav h2,
+.slider h1 {
+	font-family: 'IBM Plex Sans', sans-serif;
+	/* font-size: 5vw; */
+  font-size: calc(2vw + 1em); /* This will scale with viewport width */
+  font-size: min(max(2vw, 20px), 40px); /* But it will not go below 20px and not exceed 40px */
 	margin: 0;
 	padding-bottom: 0.5rem;
 	color: var(--bold-color);
@@ -58,7 +82,9 @@ body {
 }
 
 .slider h2 {
-	font-size: 2vw;
+	/* font-size: 2vw; */
+  font-size: calc(2vw + 1em); /* This will scale with viewport width */
+  font-size: min(max(2vw, 20px), 40px); /* But it will not go below 20px and not exceed 40px */
 	font-family: 'IBM Plex Sans', sans-serif;
 	font-weight: 300;
 	color: var(--main-text-color);
@@ -70,12 +96,8 @@ a {
 }
 
 .nav-container {
-	/* position: fixed; */
-	/* top: calc(100vh - 70px);	/1* To keep the nav bar at the bottom initially *1/ */
-	/* transition: top 0.3s ease-in-out;	/1* To animate the top property *1/ */
 	display: flex;
 	flex-direction: row;
-	/* position: absolute; */
 	position: fixed;
 	bottom: 0;
 	width: 100%;
@@ -102,14 +124,14 @@ a {
 	align-items: center;
 	flex: 1;
 	color: var(--bold-color);
-	/* letter-spacing: 0.1rem; */
 	transition: all 0.5s ease;
-	font-size: 2vw;
+	/* font-size: 2vw; */
+  font-size: calc(2vw + 1em); /* This will scale with viewport width */
+  font-size: min(max(2vw, 20px), 40px); /* But it will not go below 20px and not exceed 40px */
 	gap: 0.5em; /* put a bit of space between icon and text */
 }
 
 .nav-tab:hover {
-	/* color: #1e1f26; */
 	color: var(--main-bg-color);
 	background: var(--bold-color);
 	transition: all 0.5s ease;
@@ -119,9 +141,22 @@ a {
 	position: absolute;
 	bottom: 0;
 	width: 0;
-	height: 2px;
-	/* background: var(--bold-color); */
+	height: 4px;
+	background: var(--bold-color);
 	transition: left 0.3s ease;
+}
+
+.slider#tab-more {
+  position: relative;
+}
+
+.sub-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .background {
@@ -136,7 +171,9 @@ a {
 
 .doc-link {
 	display: inline-block;
-	font-size: 2vw;
+	/* font-size: 2vw; */
+  font-size: calc(2vw + 1em); /* This will scale with viewport width */
+  font-size: min(max(2vw, 20px), 40px); /* But it will not go below 20px and not exceed 40px */
 	font-family: 'IBM Plex Sans', sans-serif;
 	font-weight: 300;
 	color: var(--main-text-color);
@@ -177,17 +214,19 @@ a {
 	}
 
 .logo {
-	width: 10vw; /* Adjust this to set the size of the image. */
+	width: min(20vw, 200px); /* typical size, max size */
 	z-index: 4;
 }
 
 .logo_banner {
-	width: 110%; /* Adjust this to set the size of the image. */
-	filter: drop-shadow(0 0 5px var(--highlight-color)); 
+	width: min(110vw, 1200px); /* typical size, max size */
+	filter: drop-shadow(0 0 3px var(--bold-color)); 
 	z-index: 4;
 }
 .map {
-	height: 60vh;
+	max-height: 90vh;
+	width: auto;
+	max-width: 90vw;
 }
 
 .glow {
@@ -218,12 +257,14 @@ a {
 @media (min-width: 800px) {
 	.nav h1,
 	.slider h1 {
-	font-size: 5vw;
+	/* font-size: 5vw; */
+	font-size: min(max(5vw, 20px), 40px);
 	}
 
 	.nav h2,
 	.slider h2 {
-	font-size: 3vw;
+	/* font-size: 3vw; */
+	font-size: min(max(3vw, 20px), 40px);
 	}
 
 }
@@ -231,13 +272,17 @@ a {
 @media screen only (min-width: 360px) {
 	.nav h1,
 	.slider h1 {
-	font-size: 8vw;
+	/* font-size: 8vw; */
+	font-size: min(max(8vw, 20px), 40px);
 	}
 
 	.nav h2,
 	.slider h2 {
 	font-size: 2vw;
+	font-size: min(max(2vw, 20px), 40px);
 	}
 
 }
+
+
 
