@@ -13,7 +13,8 @@ window.onload = function () {
 
   Particles.init({
     selector: ".background",
-    color: ["#03dac6", "#ff0266", "#000000"],
+    // color: ["#03dac6", "#ff0266", "#000000"], // mint, pink, black
+    color: ["#505050", "#999999", "#000000"], // greys
     connectParticles: true,
     maxParticles: particleCount
   });

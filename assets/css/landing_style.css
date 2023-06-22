@@ -6,19 +6,26 @@
 :root {
 	--ground: #191919;
   --pink: #ff0266;
+  --grey: #eeeeee;
+  --grey1: #232329;
+  --grey2: #505050;
+  --grey3: #999999;
+  --grey4: #dcdcdc;
+  --grey5: #f2f2f2; 
   --red: #ff3345;
 	--orange: #ffcd96;
-  --blue: #03dac6;
+  --blue: #72b1ae;
   --black: #000000;
   --mint: #03dac6;
   --white-orange: #faebd7;
 
   --main-bg-color: var(--ground);
-  --bold-color: var(--pink);
+  --bold-color: var(--grey3);
   /* --bold-color: var(--mint); */
-  --main-text-color: var(--white-orange);
+  /* --main-text-color: var(--white-orange); */
+  --main-text-color: var(--grey5);
   /* --highlight-color: var(--pink); */
-  --highlight-color: var(--mint);
+  --highlight-color: var(--pink);
 }
 
 * {
@@ -247,7 +254,8 @@ a {
 	font-weight: 300;
 	color: var(--main-text-color);
 	z-index: 4;
-	text-shadow: 0px 0px 20px var(--highlight-color);
+	/* text-shadow: 0px 0px 20px var(--highlight-color); */
+	text-shadow: 0px 0px 20px var(--main-text-color);
 }
 
  
