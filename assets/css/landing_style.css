@@ -231,7 +231,7 @@ a {
 }
 
 .logo_banner {
-	width: min(110vw, 1200px); /* typical size, max size */
+	width: min(100vw, 1200px); /* typical size, max size */
 	filter: drop-shadow(0 0 3px var(--bold-color)); 
 	z-index: 4;
 }
