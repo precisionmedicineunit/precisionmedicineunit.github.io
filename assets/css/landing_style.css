@@ -24,8 +24,8 @@
   /* --bold-color: var(--mint); */
   /* --main-text-color: var(--white-orange); */
   --main-text-color: var(--grey5);
+  --highlight-color: var(--mint);
   /* --highlight-color: var(--pink); */
-  --highlight-color: var(--pink);
 }
 
 * {
